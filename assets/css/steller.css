@@ -70,6 +70,11 @@ body {
   background-color: #fff;
 }
 
+.header {
+  background-color: #FFF2DD; /* Changez cette valeur pour la couleur désirée */
+  padding: 20px;
+}
+
 [tabindex="-1"]:focus {
   outline: 0 !important;
 }
@@ -105,6 +110,14 @@ address {
   margin-bottom: 1rem;
   font-style: normal;
   line-height: inherit;
+}
+
+.animated-image {
+  transition: transform 0.5s ease-in-out;
+}
+
+.animated-image:hover {
+  transform: scale(1.9);
 }
 
 ol,
