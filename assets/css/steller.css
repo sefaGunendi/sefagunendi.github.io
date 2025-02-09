@@ -11657,3 +11657,13 @@ pre {
 .section.bg-gray {
   background: white;
 }
+
+.custom-hr {
+  border: none;
+  height: 4px;
+  width: 80%; /* Ajuste la largeur */
+  background: linear-gradient(to right, #696969, #696969); /* Effet de dégradé bleu */
+  margin: 20px auto; /* Centré avec un espacement */
+  border-radius: 2px; /* Coins légèrement arrondis */
+  opacity: 0.8; /* Légère transparence */
+}
