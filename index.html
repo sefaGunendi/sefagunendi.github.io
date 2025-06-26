@@ -137,203 +137,319 @@
         </div>  
     </section>
     <hr class="custom-hr">
-    <!-- Competences section -->
+    <!-- Compétences section -->
+    <style>
+    /* 1) Crée une grille qui adapte le nombre de colonnes */
+    #Competences .grid-container {
+        display: grid;
+        gap: 1.5rem;
+        /* autant de colonnes que possible, chacune ≥200px et partage équitablement l’espace */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    /* 2) Style des cartes inchangé, simplement full-width de leur “cellule” */
+    #Competences .grid-container .card {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* 3) (facultatif) padding et hover pour tes cards */
+    #Competences .card {
+        padding: 1rem;
+        border-radius: 1rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: transform .3s, box-shadow .3s;
+    }
+    #Competences .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    </style>
+
     <section id="Competences" class="section">
-        <div class="container text-center">
-            <h6 class="section-title mb-4" style="color: #a70d0d; font-weight: bold;">Compétences</h6>
-            <p class="mb-5 pb-4">Explorez mes compétences techniques et professionnelles, acquises au fil de mon parcours académique et professionnel. De la programmation à la gestion de projet.</p>
-            <div class="container mt-4">
-                <div class="row row-cols-1 row-cols-md-4 g-4">
-                    <!-- Carte 1 -->
-                    <div class="col">
-                        <div class="card h-100 text-center">
-                            <img src="assets/imgs/infor.png" alt="" class="card-img-top img-fluid p-3">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="card-text">Infor M3</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Carte 2 -->
-                    <div class="col">
-                        <div class="card h-100 text-center">
-                            <img src="assets/imgs/csharp.jpg" alt="" class="card-img-top img-fluid p-3">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="card-text">C#</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Carte 3 -->
-                    <div class="col">
-                        <div class="card h-100 text-center">
-                            <img src="assets/imgs/mysql.png" alt="" class="card-img-top img-fluid p-3">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="card-text">MySQL</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Carte 4 -->
-                    <div class="col">
-                        <div class="card h-100 text-center">
-                            <img src="assets/imgs/symfony.jpg" alt="" class="card-img-top img-fluid p-3">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="card-text">Symfony</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Carte 5 -->
-                    <div class="col">
-                        <div class="card h-100 text-center">
-                            <img src="assets/imgs/dotnet.png" alt="" class="card-img-top img-fluid p-3">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="card-text">.NET Framework</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Carte 6 -->
-                    <div class="col">
-                        <div class="card h-100 text-center">
-                            <img src="assets/imgs/knockout.jpg" alt="" class="card-img-top img-fluid p-3">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="card-text">Knockout.js</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Carte 7 -->
-                    <div class="col">
-                        <div class="card h-100 text-center">
-                            <img src="assets/imgs/ajax.jpg" alt="" class="card-img-top img-fluid p-3">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="card-text">AJAX</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Carte 8 -->
-                    <div class="col">
-                        <div class="card h-100 text-center">
-                            <img src="assets/imgs/sqlserver.png" alt="" class="card-img-top img-fluid p-3">
-                            <div class="card-body d-flex align-items-center justify-content-center">
-                                <p class="card-text">SQL Server</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </section>    
+    <div class="container text-center">
+        <h6 class="section-title mb-4" style="color: #a70d0d; font-weight: bold;">Compétences</h6>
+        <p class="mb-5 pb-4">
+        Explorez mes compétences techniques et professionnelles, acquises au fil de mon  
+        parcours académique et professionnel. De la programmation à la gestion de projet.
+        </p>
+
+        <!--  Remplace ton <div class="row …"> par cette grid-container  -->
+        <div class="grid-container">
+        <!-- Carte 1 -->
+        <div class="card text-center">
+            <img src="assets/imgs/infor.png" alt="Infor M3" class="card-img-top img-fluid mb-2" style="max-height:80px;object-fit:contain;">
+            <p class="card-text mb-0">Infor M3</p>
+        </div>
+        <!-- Carte 2 -->
+        <div class="card text-center">
+            <img src="assets/imgs/csharp.jpg" alt="C#" class="card-img-top img-fluid mb-2" style="max-height:80px;object-fit:contain;">
+            <p class="card-text mb-0">C#</p>
+        </div>
+        <!-- Carte 3 -->
+        <div class="card text-center">
+            <img src="assets/imgs/mysql.png" alt="MySQL" class="card-img-top img-fluid mb-2" style="max-height:80px;object-fit:contain;">
+            <p class="card-text mb-0">MySQL</p>
+        </div>
+        <!-- Carte 4 -->
+        <div class="card text-center">
+            <img src="assets/imgs/symfony.jpg" alt="Symfony" class="card-img-top img-fluid mb-2" style="max-height:80px;object-fit:contain;">
+            <p class="card-text mb-0">Symfony</p>
+        </div>
+        <!-- Carte 5 -->
+        <div class="card text-center">
+            <img src="assets/imgs/dotnet.png" alt=".NET Framework" class="card-img-top img-fluid mb-2" style="max-height:80px;object-fit:contain;">
+            <p class="card-text mb-0">.NET Framework</p>
+        </div>
+        <!-- Carte 6 -->
+        <div class="card text-center">
+            <img src="assets/imgs/knockout.jpg" alt="Knockout.js" class="card-img-top img-fluid mb-2" style="max-height:80px;object-fit:contain;">
+            <p class="card-text mb-0">Knockout.js</p>
+        </div>
+        <!-- Carte 7 -->
+        <div class="card text-center">
+            <img src="assets/imgs/ajax.jpg" alt="AJAX" class="card-img-top img-fluid mb-2" style="max-height:80px;object-fit:contain;">
+            <p class="card-text mb-0">AJAX</p>
+        </div>
+        <!-- Carte 8 -->
+        <div class="card text-center">
+            <img src="assets/imgs/sqlserver.png" alt="SQL Server" class="card-img-top img-fluid mb-2" style="max-height:80px;object-fit:contain;">
+            <p class="card-text mb-0">SQL Server</p>
+        </div>
+        <!-- Carte 9 -->
+        <div class="card text-center">
+            <img src="assets/imgs/github.png" alt="GitHub" class="card-img-top img-fluid mb-2" style="max-height:80px;object-fit:contain;">
+            <p class="card-text mb-0">GitHub</p>
+        </div>
+        </div>
+    </div>
+    </section>
+
     <!-- End of Sectoin -->
     <hr class="custom-hr">
 
     <!-- Expériences Section -->
-    <section id="Experiences" class="section">
-        <div class="container text-center">
-            <h6 class="section-title mb-4" style="color: #575555; font-weight: bold;">Expériences</h6>
-            <p class="mb-5 pb-4">Explorez mon parcours professionnel, où j'ai eu l'opportunité de travailler sur divers projets passionnants et de développer mes compétences dans le domaine de l'informatique. Chaque expérience m'a apporté de nouvelles connaissances et une perspective précieuse sur le monde professionnel.</p>
+    <style>
+    /* Experiences Section Styles */
+    #Experiences {
+        padding: 60px 0;
+    }
+    #Experiences .section-title {
+        font-size: 1.2rem;
+        letter-spacing: 0.1em;
+    }
+    #Experiences .grid-container {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    #Experiences .card {
+        padding: 1rem;
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        transition: transform .3s, box-shadow .3s;
+        height: 100%;
+    }
+    #Experiences .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    #Experiences .card img {
+        max-height: 100px;
+        object-fit: contain;
+        margin-bottom: 1rem;
+    }
+    #Experiences .card-text {
+        color: #666;
+        font-size: 0.95rem;
+    }
+    </style>
 
-            <div class="row text-left">
-                <div class="col-md-4">
-                    <div class="card border mb-4">
-                        <img src="assets/imgs/batzendorf.png" alt="" class="card-img-top w-100">
-                        <div class="card-body">
-                            <h5 class="card-title" style=" font-weight: bold;">Association Football Club de BATZENDORF</h5>
-                            <p>Stage d'une période de 1 mois.</p>
-                            <div  id="missions-list" style="display: none;">
-                                <p style="color: #a70d0d; font-weight: bold;">Missions :</p>
-                                <ul>
-                                    <li>Maquettage</li>
-                                    <li>Création de site CMS</li>
-                                </ul> 
-                            </div>
-                            <a href="javascript:void(0)" onclick="toggleMissions()">Afficher les missions..</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border mb-4">
-                        <img src="assets/imgs/Logo_rouge.png" alt="" class="card-img-top w-100">
-                        <div class="card-body">
-                            <h5 class="card-title" style=" font-weight: bold;">Impact web</h5>
-                            <p>Alternance d'un période de 1 an comme developpeur. Ma mission principal était de developper une application<a href="https://www.fonction-publique.gouv.fr/etre-agent-public/mon-quotidien-au-travail/sante-et-securite-au-travail/le-document-unique-devaluation-des-risques-professionnels-duerp"> "DUERP"(Le document unique d’évaluation des risques professionnels)</a> afin d'informatiser le processus de la rédaction du DUERP</p>
-                            <div  id="missions-list1" style="display: none;">
-                                <p style="color: #a70d0d; font-weight: bold;">Missions :</p>
-                                <ul>
-                                    <li>Rédaction cahier des charges</li>
-                                    <li>Planification du projet</li>
-                                    <li>Choix de la stack technique</li>
-                                    <li>Répartition des tâches</li>
-                                    <li>Conception du modèle de données</li>
-                                    <li>Mise en place de la Base de données</li>
-                                    <li>Développement FRONTEND et BACKEND</li>
-                                    <li>Correction de bug</li>
-                                    <li>Suivi et reporting</li>
-                                </ul> 
-                            </div>
-                            <a href="javascript:void(0)" onclick="toggleMissions1()">Afficher les missions..</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border mb-4">
-                        <img src="assets/imgs/soprofen.jpg" alt="" class="card-img-top w-100">
-                        <div class="card-body">
-                            <h5 class="card-title" style=" font-weight: bold;">Soprofen indutrie SAS</h5>
-                            <p>Alternance sur deux ans. La premiere anné comme apprenti en ingénierie logiciel et ensuite comme référent technique pour l'intégration des produits Soprofen dans notre ERP Infor</p>
-                            <div  id="missions-list2" style="display: none;">
-                                <p style="color: #a70d0d; font-weight: bold;">Missions :</p>
-                                <ul>
-                                    <li>Mise en place de Workflow dans l'ERP INFOR</li>
-                                    <li>Développement d'un outil d'ordonnancement pour le métier</li>
-                                    <li>Édition des étiquettes</li>
-                                    <li>Correction de bug</li>
-                                </ul> 
-                            </div>
-                            <a href="javascript:void(0)" onclick="toggleMissions2()">Afficher les missions..</a>
-                        </div>
-                    </div>
-                </div>
+    <section id="Experiences" class="section">
+    <div class="container text-center">
+        <h6 class="section-title mb-4" style="color: #575555; font-weight: bold;">Expériences</h6>
+        <p class="mb-5 pb-4">
+        Explorez mon parcours professionnel, où j'ai eu l'opportunité de travailler sur divers projets passionnants et de développer mes compétences dans le domaine de l'informatique.
+        Chaque expérience m'a apporté de nouvelles connaissances et une perspective précieuse sur le monde professionnel.
+        </p>
+
+        <div class="grid-container">
+        <!-- Association Football Club de BATZENDORF -->
+        <div class="card text-left">
+            <img src="assets/imgs/batzendorf.png" alt="Association Football Club de BATZENDORF">
+            <h5 class="card-title" style="font-weight: bold;">Association Football Club de BATZENDORF</h5>
+            <p class="card-text">Stage d'une période de 1 mois</p>
+            <div id="missions-list" style="display:none;">
+            <p style="color:#a70d0d;font-weight:bold;">Missions :</p>
+            <ul>
+                <li>Maquettage</li>
+                <li>Création de site CMS</li>
+            </ul>
             </div>
+            <a href="javascript:void(0)" onclick="toggleMissions()">Afficher les missions…</a>
         </div>
+
+        <!-- Impact Web -->
+        <div class="card text-left">
+            <img src="assets/imgs/Logo_rouge.png" alt="Impact web">
+            <h5 class="card-title" style="font-weight:bold;">Impact web</h5>
+            <p class="card-text">
+            Alternance d'une période de 1 an comme développeur et chargé de projet. Ma mission principale était de développer une application
+            <a href="https://www.fonction-publique.gouv.fr/etre-agent-public/mon-quotidien-au-travail/sante-et-securite-au-travail/le-document-unique-devaluation-des-risques-professionnels-duerp">
+            "DUERP"</a> afin d'informatiser le processus de rédaction du DUERP.
+            </p>
+            <div id="missions-list1" style="display:none;">
+            <p style="color:#a70d0d;font-weight:bold;">Missions :</p>
+            <!-- Phases list as before -->
+            <ul>
+                <li><strong>🔹 Phase de cadrage et analyse</strong></li>
+                <ul>
+                <li>Recueil et formalisation des besoins</li>
+                <li>Étude de faisabilité fonctionnelle et technique</li>
+                <li>Rédaction du cahier des charges</li>
+                </ul>
+                <li><strong>🔸 Phase de planification</strong></li>
+                <ul>
+                <li>Planification et définition des livrables</li>
+                <li>Choix de la stack technique</li>
+                <li>Organisation en sprints hebdomadaires</li>
+                </ul>
+                <li><strong>🔹 Phase de conception</strong></li>
+                <ul>
+                <li>Modélisation des processus et données</li>
+                <li>Architecture technique</li>
+                </ul>
+                <li><strong>🔸 Phase de réalisation</strong></li>
+                <ul>
+                <li>Mise en place de la base de données</li>
+                <li>Développement frontend & backend</li>
+                <li>Correction des bugs</li>
+                </ul>
+                <li><strong>🔹 Phase de validation & déploiement</strong></li>
+                <ul>
+                <li>Tests fonctionnels et retours utilisateurs</li>
+                <li>Documentation technique et utilisateur</li>
+                <li>Déploiement en production</li>
+                </ul>
+                <li><strong>🔸 Phase de suivi</strong></li>
+                <ul>
+                <li>Suivi d’avancement, reporting et rétrospective</li>
+                </ul>
+            </ul>
+            </div>
+            <a href="javascript:void(0)" onclick="toggleMissions1()">Afficher les missions…</a>
+        </div>
+
+        <!-- Soprofen Industrie SAS -->
+        <div class="card text-left">
+            <img src="assets/imgs/soprofen.jpg" alt="Soprofen Industrie SAS">
+            <h5 class="card-title" style="font-weight:bold;">Soprofen Industrie SAS</h5>
+            <p class="card-text">
+            Alternance sur deux ans :
+            <strong>1<sup>ère</sup> année</strong> en ingénierie logicielle,
+            <strong>2<sup>e</sup> année</strong> en tant que référent technique/paramétreur produit.
+            </p>
+            <div id="missions-list2" style="display:none;">
+            <p style="color:#a70d0d;font-weight:bold;">Rôle 1 : Développeur / Ingénierie logicielle</p>
+            <ul>
+                <li>Développement de l’outil d’ordonnancement</li>
+                <li>Mise en place de workflows via Event Hub</li>
+                <li>Édition des étiquettes de production</li>
+                <li>Scripts H5 pour modules personnalisés</li>
+                <li>Tests unitaires et correction de bugs</li>
+            </ul>
+            <p style="color:#a70d0d;font-weight:bold;">Rôle 2 : Référent technique CPQ / Paramétreur produit</p>
+            <ul>
+                <li>Intégration des produits dans Infor CPQ Workbench</li>
+                <li>Paramétrage des rulesets et ComponentAttributes</li>
+                <li>Revue de la structuration technique</li>
+                <li>Documentation et guides utilisateur</li>
+                <li>Support recette et key users</li>
+            </ul>
+            </div>
+            <a href="javascript:void(0)" onclick="toggleMissions2()">Afficher les missions…</a>
+        </div>
+
+        </div>
+    </div>
     </section>
+
     <hr class="custom-hr">
+
     <!--  Section  Formations -->
+   <style>
+    /* Formations Section Styles */
+    #formations {
+        padding: 60px 0;
+    }
+    #formations .section-title {
+        font-size: 1.2rem;
+        letter-spacing: 0.1em;
+    }
+    #formations .grid-container {
+        display: grid;
+        gap: 1.5rem;
+        /* autant de colonnes que possible, min 250px, réparties équitablement */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    #formations .card {
+        padding: 1.5rem;
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        transition: transform .3s, box-shadow .3s;
+        height: 100%;
+    }
+    #formations .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    #formations .card img {
+        max-height: 80px;
+        object-fit: contain;
+        margin-bottom: 1rem;
+    }
+    #formations .card-text {
+        color: #666;
+        font-size: 0.95rem;
+    }
+    </style>
+
     <section id="formations" class="py-5">
-        <div class="container text-center">
-            <h6 class="section-title mb-4" style="color: #a70d0d; font-weight: bold;">Formations</h>
-            <p class="mb-5 text-muted">Découvrez mon parcours académique, qui a façonné mes compétences en informatique.</p>
-            
-            <div class="row justify-content-center">
-                <!-- BTS -->
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow border-0 h-100">
-                        <div class="card-body text-center">
-                            <img src="assets/imgs/rene_cassin.png" class="img-fluid mb-3" alt="René Cassin">
-                            <h5 class="card-title">BTS</h5>
-                            <p class="card-text text-muted">Services Informatiques aux Organisations, option Solutions Logicielles et Applications Métier</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Licence -->
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow border-0 h-100">
-                        <div class="card-body text-center">
-                            <img src="assets/imgs/cnam.png" class="img-fluid mb-3" alt="Le Cnam">
-                            <h5 class="card-title">Licence</h5>
-                            <p class="card-text text-muted">Informatique générale</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Master -->
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow border-0 h-100">
-                        <div class="card-body text-center">
-                            <img src="assets/imgs/cesi.png" class="img-fluid mb-3" alt="CESI">
-                            <h5 class="card-title">Master</h5>
-                            <p class="card-text text-muted">Manager en architecture et applications logicielles des SI</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="container text-center">
+        <h6 class="section-title mb-4" style="color: #a70d0d; font-weight: bold;">Formations</h6>
+        <p class="mb-5 text-muted">
+        Découvrez mon parcours académique, qui a façonné mes compétences en informatique.
+        </p>
+
+        <div class="grid-container">
+        <!-- BTS -->
+        <div class="card text-center">
+            <img src="assets/imgs/rene_cassin.png" alt="Lycée René Cassin">
+            <h5 class="card-title">BTS SIO – SLAM</h5>
+            <p class="card-text">
+            Services Informatiques aux Organisations, option Solutions Logicielles et Applications Métier
+            </p>
         </div>
+        <!-- Licence -->
+        <div class="card text-center">
+            <img src="assets/imgs/cnam.png" alt="Le Cnam">
+            <h5 class="card-title">Licence Informatique</h5>
+            <p class="card-text">
+            Informatique générale – Conception d’applications et bases de données
+            </p>
+        </div>
+        <!-- Master -->
+        <div class="card text-center">
+            <img src="assets/imgs/cesi.png" alt="CESI École d'Ingénieurs">
+            <h5 class="card-title">Master Architecte SI</h5>
+            <p class="card-text">
+            Manager en architecture et applications logicielles des Systèmes d’Information
+            </p>
+        </div>
+        </div>
+    </div>
     </section>
     
     <hr class="custom-hr">
