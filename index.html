@@ -552,26 +552,31 @@
     <!-- End of page footer -->
 	<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-    document.getElementById("contact-form").addEventListener("submit", function(e) {
-        e.preventDefault();
+  // Initialisation avec ta clé publique EmailJS
+  (function(){
+    emailjs.init("l6ElRkq-WCVzYMdYvI8Cv6U5B"); 
+  })();
 
-        // Vérifie si le CAPTCHA est validé
-        if (grecaptcha.getResponse() === "") {
-        alert("Veuillez valider le reCAPTCHA avant d’envoyer.");
-        return;
-        }
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-        emailjs.sendForm("service_ewv8i2g", "template_uxle2ka", this)
-        .then(function () {
-            alert("Message envoyé avec succès !");
-            document.getElementById("contact-form").reset();
-            grecaptcha.reset(); // reset CAPTCHA après envoi
-        }, function (error) {
-            alert("Erreur lors de l'envoi.");
-            console.log(error);
-        });
-    });
-    </script>
+    // Vérifie si le CAPTCHA est validé
+    if (grecaptcha.getResponse() === "") {
+      alert("Veuillez valider le reCAPTCHA avant d’envoyer.");
+      return;
+    }
+
+    emailjs.sendForm("service_ewv8i2g", "template_uxle2ka", this)
+      .then(function () {
+        alert("Message envoyé avec succès !");
+        document.getElementById("contact-form").reset();
+        grecaptcha.reset(); 
+      }, function (error) {
+        alert("Erreur lors de l'envoi.");
+        console.log("Erreur détaillée :", error);
+      });
+  });
+</script>
 
 	<!-- core  -->
     <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
