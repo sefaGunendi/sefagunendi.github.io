@@ -9,6 +9,7 @@
     <!-- Bootstrap + Steller main styles -->
 	<link rel="stylesheet" href="assets/css/steller.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
 
@@ -64,11 +65,13 @@
             <div class="infos">
                 <h6 class="subtitle">Bonjour, je suis</h6>
                 <h6 class="title"><span style="color: #a70d0d; font-weight: bold;">S</span>efa <span style="color: #575555; font-weight: bold;">G</span>UNENDI</h6>
-                <p class="subtitle">Étudiant en Master Manager en architecture et applications logicielles des SI </br> Alternant Analyste Développeur d’Applications et ERP</p>
+                <p class="subtitle">
+                    <span id="typed-intro"></span>
+                </p>
 
                 <div class="buttons pt-3">
                     <!-- <button class="btn btn-primary rounded">HIRE ME</button> -->
-                    <a href="assets/pdf/CV_Sefa_Gunendi.pdf" download class="btn btn-danger rounded mt-3">Télécharger le CV</a> 
+                    <a href="assets/pdf/CV_Sefa_Gunendi.pdf" target="_blank" class="btn btn-danger rounded mt-3">  Voir le CV</a>
                 </div>      
 
                 <div class="socials mt-4">
@@ -629,6 +632,25 @@
             // Ouvrir le client de messagerie par défaut avec les informations pré-remplies
             window.location.href = mailtoLink;
         }
-    </script>     
+    </script>  
+    
+    <!-- Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        new Typed("#typed-intro", {
+        strings: [
+            "Étudiant en Master Manager en architecture et applications logicielles des SI<br>Alternant Analyste Développeur d’Applications et ERP"
+        ],
+        typeSpeed: 15,       // vitesse rapide
+        startDelay: 200,     // petite pause avant d’écrire
+        showCursor: true,
+        cursorChar: '|',
+        loop: false
+        });
+    });
+    </script>
+
 </body>
 </html>
