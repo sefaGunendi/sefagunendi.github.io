@@ -11667,3 +11667,44 @@ pre {
   border-radius: 2px; /* Coins légèrement arrondis */
   opacity: 0.8; /* Légère transparence */
 }
+
+/* 3. Ajoute ces styles dans ton CSS principal */
+
+#progress-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 4px;              /* épaisseur de la barre */
+  background: rgba(0,0,0,0.1); /* couleur de fond (gris clair) */
+  z-index: 9999;
+}
+
+#progress-bar {
+  width: 0;
+  height: 100%;
+  background: #a70d0d;      /* couleur du défilement (rouge Sefa) */
+  transition: width 0.1s ease-out;
+}
+
+/* 1) Le canvas doit capter les événements pour particles.js */
+#particles-js {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  /* pointer-events: auto;  ← c'est le comportement par défaut */
+}
+
+/* 2) On désactive les pointer-events sur le container principal */
+.header#home .container {
+  position: relative;
+  z-index: 1;
+  pointer-events: none; /* le container n'intercepte plus rien */
+}
+
+/* 3) On réactive les pointer-events sur TOUTES les vues enfants 
+      (boutons, liens, inputs, etc.) */
+.header#home .container * {
+  pointer-events: auto;
+}
+
