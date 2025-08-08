@@ -152,6 +152,9 @@
             <p class="mb-5 pb-4">Bienvenue dans cet espace dédié à l'analyse et à la réflexion sur les tendances technologiques et leur impact. Vous y trouverez des idées, des ressources et des propositions concrètes pour mieux comprendre les enjeux actuels et anticiper les défis de demain.</p>  
             <div class="container text-center">
                 <div class="row">
+                    <a href="gestion-de-projet-competences.html">Gestion de projet : cadre de compétences (résumé)</a> 
+                </div>
+                <div class="row">
                     <a href="https://www.greenit.fr/2024/08/15/quels-sont-les-impacts-environnementaux-de-lia/" target="_blank">Quels sont les impacts environnementaux de l’IA ?</a> 
                 </div>
                 <div class="row">
@@ -252,6 +255,15 @@
         </div>
         </div>
     </div>
+    <!--
+        <section id="gestion-de-projet" style="max-width:900px;margin:48px auto;padding:0 16px;">
+            <h3>Compétences actuelles & à atteindre</h3>
+            <canvas id="radarGP" height="220"></canvas>
+            <p style="font-size:0.9rem;opacity:.8;">
+                Échelle 0–5.
+            </p>
+        </section>
+    -->
     </section>
 
     <!-- End of Sectoin -->
@@ -650,7 +662,90 @@
             window.location.href = mailtoLink;
         }
     </script>  
-    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    const labels = [
+        "Planification",
+        "Gestion des risques",
+        "Pilotage budget/ROI",
+        "Communication",
+        "Leadership",
+        "Agile / Scrum",
+        "Qualité & tests",
+        "Gestion du changement",
+        "Outils",
+    ];
+
+    const niveauActuel = [3, 2, 2, 4, 2, 3, 3, 2, 4];
+    const niveauCible   = [5, 4, 4, 5, 4, 4, 4, 4, 4];
+
+    const ctx = document.getElementById("radarGP").getContext("2d");
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    new Chart(ctx, {
+        type: "radar",
+        data: {
+        labels,
+        datasets: [
+            {
+            label: "Niveau actuel",
+            data: niveauActuel,
+            fill: true,
+            backgroundColor: "rgba(54, 162, 235, 0.2)",
+            borderColor: "rgba(54, 162, 235, 1)",
+            pointBackgroundColor: "rgba(54, 162, 235, 1)",
+            pointRadius: 3,
+            },
+            {
+            label: "Niveau cible",
+            data: niveauCible,
+            fill: true,
+            backgroundColor: "rgba(75, 192, 192, 0.15)",
+            borderColor: "rgba(75, 192, 192, 1)",
+            pointBackgroundColor: "rgba(75, 192, 192, 1)",
+            pointRadius: 3,
+            },
+        ],
+        },
+        options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: reduceMotion ? false : { duration: 600 },
+        plugins: {
+            legend: { position: "bottom" },
+            tooltip: {
+            callbacks: {
+                afterLabel: (ctx) => {
+                const gap = (niveauCible[ctx.dataIndex] ?? 0) - (niveauActuel[ctx.dataIndex] ?? 0);
+                return gap > 0 ? `  • À renforcer : +${gap}` : "";
+                },
+            },
+            },
+        },
+        scales: {
+            r: {
+            suggestedMin: 0,
+            suggestedMax: 5,
+            ticks: { stepSize: 1, showLabelBackdrop: false },
+            grid: { circular: true },
+            angleLines: { color: "rgba(0,0,0,0.1)" },
+            },
+        },
+        },
+    });
+    </script>
+    <style>    
+    #radarGP {
+        max-width: 600px;   /* Largeur max */
+        max-height: 400px;  /* Hauteur max */
+        width: 100%;        /* Prend toute la largeur disponible */
+        height: auto;       /* Garde le ratio */
+        margin: 0 auto;     /* Centre dans le conteneur */
+    }
+    </style>
+
+
     <!-- Typed.js -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
